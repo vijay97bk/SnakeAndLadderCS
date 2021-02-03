@@ -9,6 +9,7 @@ namespace SnakeAndLadder
             int POSITION_PLAYER_1 = 0;
             int FINAL_POSITION = 100;
             int POSITION_PLAYER_2 = 0;
+            int NumberOfTimesDiceRolled = 0;
             
             Random random = new Random();
             int Turn = random.Next(0, 1);
@@ -41,7 +42,9 @@ namespace SnakeAndLadder
                             POSITION_PLAYER_1 = 0;
                         }
                         break;
-                } 
+                }
+                NumberOfTimesDiceRolled++;
+                Console.WriteLine("Number of times dice rolled: " + NumberOfTimesDiceRolled);
             }   
 
         }
