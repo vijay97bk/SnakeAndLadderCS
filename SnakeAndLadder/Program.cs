@@ -6,28 +6,43 @@ namespace SnakeAndLadder
     {
         static void Main(string[] args)
         {
-            int POSITION = 0;
+            int POSITION_PLAYER_1 = 0;
+            int FINAL_POSITION = 100;
+            int POSITION_PLAYER_2 = 0;
             
             Random random = new Random();
-            while (POSITION < 100)
-                { 
+            int Turn = random.Next(0, 1);
+
+            while (POSITION_PLAYER_1 < FINAL_POSITION)
+            { 
             int DiceValue = random.Next(1, 6);
             int Choice = random.Next(0, 2);
 
-                if (Choice == 0)
-                    Console.WriteLine("No Play");
-                else if (Choice == 1)
+                switch (Choice)
                 {
-                    POSITION += DiceValue;
-                    Console.WriteLine("Ladder" + POSITION);
+                    case 0:
+                        Console.WriteLine("No Play");
+                        break;
 
-                }
-                else
-                {
-                    POSITION -= DiceValue;
-                    Console.WriteLine("Snake" + POSITION);
-                }   
-                }   
+                    case 1:
+                        POSITION_PLAYER_1 += DiceValue;
+                        Console.WriteLine("Ladder" + POSITION_PLAYER_1);
+                        if (POSITION_PLAYER_1 > 100)
+                        {
+                            POSITION_PLAYER_1 -= DiceValue;
+                        }
+                        break;
+
+                    default:
+                        POSITION_PLAYER_1 -= DiceValue;
+                        Console.WriteLine("Snake" + POSITION_PLAYER_1);
+                        if (POSITION_PLAYER_1 < 0)
+                        {
+                            POSITION_PLAYER_1 = 0;
+                        }
+                        break;
+                } 
+            }   
 
         }
     }
