@@ -14,13 +14,13 @@ namespace SnakeAndLadder
             Random random = new Random();
             int Turn = random.Next(0, 1);
             int PlayerTurn = random.Next(0, 1);
-            while (POSITION_PLAYER_1 < FINAL_POSITION && POSITION_PLAYER_2 < FINAL_POSITION)
+            while (POSITION_PLAYER_1 != FINAL_POSITION && POSITION_PLAYER_2 != FINAL_POSITION)
             {
                 if (PlayerTurn == 0)
                 {
 
                     int DiceValuePlayer1 = random.Next(1, 6);
-                    int Choice = random.Next(0, 2);
+                    int Choice = random.Next(0, 3);
 
                     switch (Choice)
                     {
